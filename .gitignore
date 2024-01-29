@@ -1,0 +1,38 @@
+# Ignore Python-specific files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore build artifacts
+build/
+dist/
+
+# Ignore tests and test artifacts
+tests/*.pyc
+tests/*.pyo
+tests/*.pyd
+
+# Ignore coverage reports
+coverage/*
+
+# Ignore virtual environment directories
+env/
+.venv/
+
+# Ignore editor and IDE config files
+.idea/
+.vscode/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore editor and IDE temporary files
+*.bak
+*.log
+*.swo
+*.swp
+*.swx
+*.tmp
+*.tmp~
