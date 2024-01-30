@@ -44,27 +44,18 @@ def _array_hopscotch_with_loop_detection(
         return result
 
     # base case
-    hop = a[i_start]
-    if hop == 0:
+    if a[i_start] == 0:
         result.add((i_start,))
         return result
 
     # recursive step
     visited.add(i_start)  # don't revisit starting index
-    i_hop_left = i_start - hop
-    if i_hop_left >= 0 and i_hop_left not in visited:
-        remaining_paths = _array_hopscotch_with_loop_detection(a, i_hop_left, visited)
-        for path in remaining_paths:
-            new_path = (i_start,) + path
-            result.add(new_path)
-
-    i_hop_right = i_start + a[i_start]
-    if i_hop_right < len(a) and i_hop_right not in visited:
-        remaining_paths = _array_hopscotch_with_loop_detection(a, i_hop_right, visited)
-        for path in remaining_paths:
-            new_path = (i_start,) + path
-            result.add(new_path)
-
+    for i_hop in (i_start - a[i_start], i_start + a[i_start]):
+        if 0 <= i_hop < len(a) and i_hop not in visited:
+            remaining_paths = _array_hopscotch_with_loop_detection(a, i_hop, visited)
+            for path in remaining_paths:
+                new_path = (i_start,) + path
+                result.add(new_path)
     visited.remove(i_start)  # ok to revisit starting index
 
     return result
