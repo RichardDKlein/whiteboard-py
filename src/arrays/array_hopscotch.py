@@ -35,15 +35,19 @@ def array_hopscotch(a: tuple[int], i_start: int) -> set[tuple[int]]:
 def _array_hopscotch_with_loop_detection(
     a: tuple[int], i_start: int, visited: set
 ) -> set[tuple[int]]:
+
     result = set()
+
     # error checking
     if not isinstance(a, tuple) or i_start < 0 or i_start >= len(a) or a[i_start] < 0:
         return result
+
     # base case
     hop = a[i_start]
     if hop == 0:
         result.add((i_start,))
         return result
+
     # recursive step
     visited.add(i_start)  # don't revisit starting index
     i_hop_left = i_start - hop
@@ -52,11 +56,14 @@ def _array_hopscotch_with_loop_detection(
         for path in remaining_paths:
             new_path = (i_start,) + path
             result.add(new_path)
+
     i_hop_right = i_start + a[i_start]
     if i_hop_right < len(a) and i_hop_right not in visited:
         remaining_paths = _array_hopscotch_with_loop_detection(a, i_hop_right, visited)
         for path in remaining_paths:
             new_path = (i_start,) + path
             result.add(new_path)
+
     visited.remove(i_start)  # ok to revisit starting index
+
     return result
