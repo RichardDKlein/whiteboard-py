@@ -28,6 +28,7 @@ def array_hopscotch(a: tuple[int], i_start: int) -> set[tuple[int]]:
         containing a sequence of hop indices that lead to a zero element.
         If there are no winning paths, the set will be empty.
     """
+
     visited = set()
     return _array_hopscotch_with_loop_detection(a, i_start, visited)
 
