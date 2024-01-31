@@ -19,30 +19,35 @@ def array_hopscotch(a: tuple[int], i_start: int) -> set[tuple[int]]:
     Since each element in the array is visited at most once, the execution
     time is O(n), worst case.
 
-    Args:
-        a: The array in which we are to play "array hopscotch".
-        i_start: The starting index for our game of hopscotch.
-
-    Returns:
-        A set containing all the winning paths. Each winning path is a tuple
-        containing a sequence of hop indices that lead to a zero element.
-        If there are no winning paths, the set will be empty.
+    :param a: The array in which we are to play our game of array hopscotch.
+    :param i_start: The starting index for our game.
+    :return: A set containing all the winning paths. Each winning path is a
+    tuple containing a sequence of hop indices that lead to a zero element.
+    If there are no winning paths, the set will be empty.
     """
-
-    visited = set()
-    return _array_hopscotch_with_loop_detection(a, i_start, visited)
+    return _helper(a, i_start, set())
 
 
-def _array_hopscotch_with_loop_detection(
-    a: tuple[int], i_start: int, visited: set
-) -> set[tuple[int]]:
+def _helper(a: tuple[int], i_start: int, visited: set) -> set[tuple[int]]:
+    """
+    Helper function to perform loop detection.
 
+    :param a: The array in which we are to play our game of array hopscotch.
+    :param i_start: The starting index for our game.
+    :param visited: A set of indices that have already been visited during
+    our game. Do not continue to explore any paths that land on any of these
+    indices.
+    :return: A set containing all the winning paths. Each winning path is a
+    tuple containing a sequence of hop indices that lead to a zero element.
+    If there are no winning paths, the set will be empty.
+    """
     result = set()
-
     # error checking
-    if not isinstance(a, tuple) or i_start < 0 or i_start >= len(a) or a[i_start] < 0:
+    if not isinstance(a, tuple) or not (0 <= i_start < len(a)) or a[i_start] < 0:
         return result
-
+    # loop detection
+    if i_start in visited:
+        return result
     # base case
     if a[i_start] == 0:
         result.add((i_start,))
@@ -51,11 +56,10 @@ def _array_hopscotch_with_loop_detection(
     # recursive step
     visited.add(i_start)  # don't revisit starting index
     for i_hop in (i_start - a[i_start], i_start + a[i_start]):
-        if 0 <= i_hop < len(a) and i_hop not in visited:
-            remaining_paths = _array_hopscotch_with_loop_detection(a, i_hop, visited)
-            for path in remaining_paths:
-                new_path = (i_start,) + path
-                result.add(new_path)
+        remaining_paths = _helper(a, i_hop, visited)
+        for path in remaining_paths:
+            new_path = (i_start,) + path
+            result.add(new_path)
     visited.remove(i_start)  # ok to revisit starting index
 
     return result
