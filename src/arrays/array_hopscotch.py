@@ -4,8 +4,8 @@ def array_hopscotch(a: tuple[int], i_start: int) -> set[tuple[int]]:
 
     The game is played as follows. Given an array 'a' containing integers
     greater than or equal to zero, and a starting index 'i_start', hop
-    left and right in the array by the distance contained in a[iStart]. Then
-    repeat the process for the new elements you land on.
+    left and right in the array by the distance contained in a[i_start].
+    Then repeat the process for the new elements you land on.
 
     Continue in this manner until you either land on a zero element
     (i.e. you win the game), or you realize that it is not possible to
@@ -32,14 +32,12 @@ def _helper(a: tuple[int], i_start: int, visited: set) -> set[tuple[int]]:
     """
     Helper function to perform loop detection.
 
-    :param a: The array in which we are to play our game of array hopscotch.
-    :param i_start: The starting index for our game.
+    :param a: (Same as in main function.)
+    :param i_start: (Same as in main function.)
     :param visited: A set of indices that have already been visited during
-    our game. Do not continue to explore any paths that land on any of these
-    indices.
-    :return: A set containing all the winning paths. Each winning path is a
-    tuple containing a sequence of hop indices that lead to a zero element.
-    If there are no winning paths, the set will be empty.
+    our game of array hopscotch. Do not continue to explore any paths that
+    land on any of these indices.
+    :return: (Same as in main function.)
     """
     result = set()
     # error checking
@@ -58,8 +56,7 @@ def _helper(a: tuple[int], i_start: int, visited: set) -> set[tuple[int]]:
     for i_hop in (i_start - a[i_start], i_start + a[i_start]):
         remaining_paths = _helper(a, i_hop, visited)
         for path in remaining_paths:
-            new_path = (i_start,) + path
-            result.add(new_path)
+            result.add((i_start,) + path)
     visited.remove(i_start)  # ok to revisit starting index
 
     return result
