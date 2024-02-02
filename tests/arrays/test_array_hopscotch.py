@@ -79,7 +79,7 @@ def test_no_solution():
 
 def do_test(a, i_start, expected):
     actual = array_hopscotch(a, i_start)
-    assert expected == actual
+    assert actual == expected
     print(f"\n\n{a}, start = {i_start}")
     print("Winning hops:")
     print_paths(actual)
