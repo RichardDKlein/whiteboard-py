@@ -4,9 +4,9 @@ from src.arrays.array_hopscotch import array_hopscotch
 def test_empty_array():
     print()
     print()
-    print("===================")
-    print("Test ArrayHopscotch:")
-    print("===================")
+    print("=====================")
+    print("Test array_hopscotch:")
+    print("=====================")
 
     a = ()
     i_start = 0
