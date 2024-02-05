@@ -1,4 +1,4 @@
-def array_hopscotch(a: tuple[int, ...], i_start: int) -> set[tuple[int, ...]]:
+def array_hopscotch(a, i_start):
     """
     Play a game of 'array hopscotch'.
 
@@ -28,7 +28,7 @@ def array_hopscotch(a: tuple[int, ...], i_start: int) -> set[tuple[int, ...]]:
     return _helper(a, i_start, set())
 
 
-def _helper(a: tuple[int, ...], i_start: int, visited: set) -> set[tuple[int, ...]]:
+def _helper(a, i_start, visited):
     """
     Helper function to perform loop detection.
 
