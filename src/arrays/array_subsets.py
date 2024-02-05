@@ -1,25 +1,25 @@
 def array_subsets(a):
     """
-    Partitions an array `a` of integers into disjoint sub-arrays `arrA`
-    and `arrB` such that `arrA` is the smallest possible subarray whose
-    elements sum to a greater number than the elements of `arrB`. (Note
-    that neither `arrA` nor arrB` need consist of consecutive elements
+    Partitions an array `a` of integers into disjoint sub-arrays `arr_a`
+    and `arr_b` such that `arr_a` is the smallest possible subarray whose
+    elements sum to a greater number than the elements of `arr_b`. (Note
+    that neither `arr_a` nor `arr_b` need consist of consecutive elements
     from `a`.)
 
     The strategy is to first sort the given array in descending order.
-    Then, starting from the first element, keep adding elements to `arrA`
-    until the running total of the elements in `arrA` exceeds the running
-    total of the remaining elements (in `arrB`).
+    Then, starting from the first element, keep adding elements to `arr_a`
+    until the running total of the elements in `arr_a` exceeds the running
+    total of the remaining elements (in `arr_b`).
 
     Performance is O(n*log(n)), due to the sorting operation.
 
     :param a: The array to be partitioned.
-    :return: The subarray `arrA`, with its elements in ascending order.
+    :return: The subarray `arr_a`, with its elements in ascending order.
     """
     result = []
     if a is None or len(a) == 0:
         return result
-    a.sort(reverse=True)
+    a.reverse()
     sum_a = 0
     sum_b = sum(a)
     for n in a:
