@@ -80,7 +80,7 @@ def test_no_solution():
 def do_test(a, i_start, expected):
     actual = array_hopscotch(a, i_start)
     assert actual == expected
-    print(f"\n\n{a}, start = {i_start}")
+    print(f"\n\na = {a}, iStart = {i_start}")
     print("Winning hops:")
     print_paths(actual)
 
@@ -88,5 +88,5 @@ def do_test(a, i_start, expected):
 def print_paths(paths):
     print("{")
     for path in paths:
-        print(f"\t[{', '.join(map(str, path))}]")
+        print(f"\t({', '.join(map(str, path))})")
     print("}")

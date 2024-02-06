@@ -18,7 +18,8 @@ def array_subsets(a):
     """
     result = []
     if a is None or len(a) == 0:
-        return result
+        return ()
+    a = list(a)
     a.reverse()
     sum_a = 0
     sum_b = sum(a)
@@ -29,4 +30,4 @@ def array_subsets(a):
         if sum_a > sum_b:
             break
     result.sort()
-    return result
+    return tuple(result)
