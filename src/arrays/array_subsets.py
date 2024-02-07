@@ -1,4 +1,4 @@
-def array_subsets(a):
+def array_subsets(a: tuple[int, ...]) -> tuple[int, ...]:
     """
     Partitions an array `a` of integers into disjoint sub-arrays `arr_a`
     and `arr_b` such that `arr_a` is the smallest possible subarray whose
