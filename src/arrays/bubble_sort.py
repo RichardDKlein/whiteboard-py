@@ -1,3 +1,5 @@
+# MY SOLUTION:
+# ============
 def bubble_sort(a: tuple[int, ...]) -> None:
     """
     Sorts an array using the bubble sort algorithm. Performance is O(n*n).
@@ -9,14 +11,10 @@ def bubble_sort(a: tuple[int, ...]) -> None:
     :return: None
     """
     number_of_unsorted_elements = len(a)
-    while True:
-        swap_occurred = False
+    while number_of_unsorted_elements > 0:
         new_number_of_unsorted_elements = 0
         for i in range(number_of_unsorted_elements - 1):
             if a[i] > a[i + 1]:
                 a[i], a[i + 1] = a[i + 1], a[i]
-                swap_occurred = True
                 new_number_of_unsorted_elements = i + 1
         number_of_unsorted_elements = new_number_of_unsorted_elements
-        if not swap_occurred:
-            break
