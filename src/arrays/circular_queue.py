@@ -46,6 +46,7 @@ class CircularQueue:
         if self.is_empty():
             return None
         element = self.buf[self.head]
+        self.buf[self.head] = None
         self.head = (self.head + 1) % len(self.buf)
         return element
 
