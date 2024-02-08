@@ -1,6 +1,6 @@
 def array_subsets(a: tuple[int, ...]) -> tuple[int, ...]:
     """
-    Partitions an array `a` of integers into disjoint sub-arrays `arr_a`
+    Partition an array `a` of integers into disjoint sub-arrays `arr_a`
     and `arr_b` such that `arr_a` is the smallest possible subarray whose
     elements sum to a greater number than the elements of `arr_b`. (Note
     that neither `arr_a` nor `arr_b` need consist of consecutive elements

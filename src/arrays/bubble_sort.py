@@ -2,10 +2,12 @@
 # ============
 def bubble_sort(a: tuple[int, ...]) -> None:
     """
-    Sorts an array using the bubble sort algorithm. Performance is O(n*n).
+    Sort an array using the bubble sort algorithm.
 
     The algorithm is optimized to avoid re-examining the already sorted
     elements that "sink" to the bottom of the array during each iteration.
+
+    Performance is O(n*n).
 
     :param a: The array to be sorted. It will be sorted in place.
     :return: None
