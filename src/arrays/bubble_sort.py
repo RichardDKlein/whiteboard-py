@@ -1,5 +1,3 @@
-# MY SOLUTION:
-# ============
 def bubble_sort(a: tuple[int, ...]) -> None:
     """
     Sort an array using the bubble sort algorithm.
