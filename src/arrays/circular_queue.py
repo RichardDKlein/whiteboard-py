@@ -11,10 +11,10 @@ class CircularQueue:
     The queue is considered empty when the head and the tail
     point to the same element. The queue is considered full
     when the next element after the tail is the head. Since
-    the tail always points to the next free slot, a full
-    queue contains exactly one free, and unusable, slot.
-    Thus, the capacity of a buffer of length n is actually
-    (n - 1).
+    the tail always points to the next free slot, a full queue
+    contains exactly one free, and unusable, slot. Thus, if we
+    want a queue that can hold `capacity` elements, we need to
+    allocate a buffer of length (capacity + 1).
     """
 
     def __init__(self, capacity):
@@ -46,7 +46,6 @@ class CircularQueue:
         if self.is_empty():
             return None
         element = self.buf[self.head]
-        self.buf[self.head] = None
         self.head = (self.head + 1) % len(self.buf)
         return element
 
