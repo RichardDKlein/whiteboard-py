@@ -20,11 +20,12 @@ def array_hopscotch(a: tuple[int, ...], i_start: int) -> set[tuple[int, ...]]:
     win the game), or you land on an element from which there are no legal hops
     (i.e., you lose the game).
 
-    We shall use a recursive algorithm to play the game, keeping track of the
-    elements we have visited.
+    The goal of the game is to find not just one winning path, but all possible
+    winning paths.
 
-    Since each element in the array is visited at most once, the execution time
-    is O(n), worst case.</p>
+    Since there are at most `n` indices in each winning path, where `n` is the
+    length of the array, and since there are only `k` winning paths, the execution
+    time is O(k * n) = O(n), worst case.
 
     :param a: The array in which we are to play our game of array hopscotch.
     :param i_start: The starting index for our game.
