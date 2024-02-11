@@ -48,20 +48,18 @@ def _helper(
     land on any of these indices.
     :return: (Same as in main function.)
     """
+    result = set()
     # error checking
     if not isinstance(a, tuple) or not (0 <= i_start < len(a)) or a[i_start] < 0:
-        return set()
+        return result
     # loop detection
     if i_start in visited:
-        return set()
+        return result
     # base case
     if a[i_start] == 0:
-        result = set()
         result.add((i_start,))
         return result
-
     # recursive step
-    result = set()
     visited.add(i_start)  # don't revisit starting index
     for i_hop in (i_start - a[i_start], i_start + a[i_start]):
         remaining_paths = _helper(a, i_hop, visited)
