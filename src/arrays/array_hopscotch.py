@@ -31,7 +31,9 @@ def array_hopscotch(a: tuple[int, ...], i_start: int) -> set[tuple[int, ...]]:
     :param i_start: The starting index for our game.
     :return: A set containing all the winning paths. Each winning path is a
     tuple containing a sequence of unique hop indices that lead to a zero
-    element. If there are no winning paths, the set will be empty.
+    element. Note that the first element of a winning tuple must be `i_start`,
+    and the last element must be the index of a zero element in `a`. If there
+    are no winning paths, the set will be empty.
     """
     return _helper(a, i_start, set())
 
