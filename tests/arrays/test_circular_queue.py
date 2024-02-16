@@ -66,7 +66,7 @@ def test_add_and_remove():
     print()
     assert not add(20)
 
-    # remove six elements
+    # remove seven elements
     print()
     for i in range(7):
         element = remove()
