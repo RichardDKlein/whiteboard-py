@@ -199,7 +199,7 @@ def do_test(n, expected):
     end_time = time.monotonic()
 
     elapsed_time = end_time - start_time
-    microseconds = elapsed_time * 1_000_000
+    microseconds = int(elapsed_time * 1_000_000)
 
     print(primes)
     print(f"Elapsed time = {microseconds} microseconds")
