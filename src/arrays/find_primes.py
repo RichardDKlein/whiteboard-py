@@ -3,7 +3,7 @@ def find_primes(n: int) -> [int]:
     Find all primes up to a given integer.
 
     Our algorithm is the Sieve of Eratosthenes. We use an array 'isPrime'
-    to keep track of which integers are prime: `isPrime[i]` = `true` if
+    to keep track of which integers are prime: `isPrime[i]` = `True` if
     and only if 'i' is prime.
 
     All elements of `isPrime` are initialized to `True`, since as far as
