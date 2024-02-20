@@ -1,13 +1,17 @@
+import pytest
 from src.arrays.array_hopscotch import array_hopscotch
 
 
-def test_empty_array():
+@pytest.fixture(scope="session", autouse=True)
+def before_session():
     print()
     print()
     print("=====================")
     print("Test array_hopscotch:")
     print("=====================")
 
+
+def test_empty_array():
     a = ()
     i_start = 0
     expected = set()

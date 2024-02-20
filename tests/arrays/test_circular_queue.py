@@ -1,15 +1,19 @@
+import pytest
 from src.arrays.circular_queue import CircularQueue
 
 queue = CircularQueue(10)
 
 
-def test_add_and_remove():
+@pytest.fixture(scope="session", autouse=True)
+def before_session():
     print()
     print()
-    print("===================")
-    print("Test CircularQueue:")
-    print("===================")
+    print("====================")
+    print("Test circular_queue:")
+    print("====================")
 
+
+def test_add_and_remove():
     # add five elements
     print()
     add(1)

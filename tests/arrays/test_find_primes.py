@@ -1,13 +1,19 @@
+import pytest
 import time
 from src.arrays.find_primes import find_primes
+from tests.strings.string_test_utils import print_long_string
+
+
+@pytest.fixture(scope="session", autouse=True)
+def before_session():
+    print()
+    print()
+    print("=================")
+    print("Test find_primes:")
+    print("=================")
 
 
 def test_up_to_1():
-    print()
-    print()
-    print("================")
-    print("Test FindPrimes:")
-    print("================")
     expected = []
     do_test(1, expected)
 
@@ -201,7 +207,7 @@ def do_test(n, expected):
     elapsed_time = end_time - start_time
     microseconds = int(elapsed_time * 1_000_000)
 
-    print(primes)
+    print(print_long_string(str(primes)))
     print(f"Elapsed time = {microseconds} microseconds")
 
     assert primes == expected

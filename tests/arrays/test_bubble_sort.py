@@ -1,12 +1,17 @@
+import pytest
 from src.arrays.bubble_sort import bubble_sort
 
 
+@pytest.fixture(scope="session", autouse=True)
+def before_session():
+    print()
+    print()
+    print("=================")
+    print("Test bubble_sort:")
+    print("=================")
+
+
 def test_array_with_one_element():
-    print()
-    print()
-    print("================")
-    print("Test BubbleSort:")
-    print("================")
     a = [1]
     expected = [1]
     do_test(a, expected)

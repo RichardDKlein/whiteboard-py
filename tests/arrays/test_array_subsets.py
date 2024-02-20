@@ -1,13 +1,17 @@
+import pytest
 from src.arrays.array_subsets import array_subsets
 
 
-def test_null_array():
+@pytest.fixture(scope="session", autouse=True)
+def before_session():
     print()
     print()
     print("===================")
     print("Test array_subsets:")
     print("===================")
 
+
+def test_null_array():
     a = None
     expected = ()
     do_test(a, expected)
