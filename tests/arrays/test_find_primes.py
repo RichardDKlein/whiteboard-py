@@ -198,7 +198,7 @@ def test_up_to_1000():
 
 
 def do_test(n, expected):
-    print(f"Primes up to {n}:")
+    print(f"\nPrimes up to {n}:")
 
     start_time = time.monotonic()
     primes = find_primes(n)
